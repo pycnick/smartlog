@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package grpc;
+
+message Source {
+  string source_name = 1;
+}
+
+message InitSourceResponse {
+  bool success = 1;
+}
+
+service SmartLogSources {
+  rpc InitSource(Source) returns (InitSourceResponse);
+}

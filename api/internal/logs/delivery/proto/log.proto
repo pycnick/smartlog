@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/pycnick/smartlog/api/proto/;proto";
+
+message Log {
+  string service = 1;
+  string span_id = 2;
+  string json = 3;
+}
+
+message LogStatus {
+  bool success = 1;
+}
+
+service SmartLogV1 {
+  rpc SendLog(Log) returns (LogStatus);
+}
